@@ -11,12 +11,12 @@ func main() {
 	for {
 		inputHeight, inputWeight, err := input.InputWeightHeight()
 		if err != nil {
-			fmt.Printf("Неккоректно введены рост вес, ошибка: %v\n\n", err)
+			fmt.Printf("Неккоректно введены рост/вес, ошибка: %v\n\n", err)
 			continue
 		}
-
-		fmt.Printf("Ваш рост: %.2f м.\n"+
-			"Ваш вес: %.2f кг. \n", inputHeight, inputWeight)
+		inputHeight = inputHeight / 100
+		fmt.Printf("Ваш вес: %.2f кг.\n"+
+			"Ваш рост: %.2f м. \n", inputWeight, inputHeight)
 
 		imt := inputWeight / (inputHeight * inputHeight)
 		fmt.Printf("Ваш ИМТ = %.2f \n", imt)
